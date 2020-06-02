@@ -9,7 +9,7 @@ class Population:
         self.agents = []
         self.population = population
         self.mutation_rate = mutation_rate
-        self.generation = 0
+        self.generation = 1
         self.outdated_agents = [] # history agents
 
         for i in range(population):
@@ -156,5 +156,5 @@ class Population:
     def print_statistic(self):
         print("Genome layers: " + len(self.agents[self.best_agent()].nn.layers))
         print("Bias Node: " + self.agents[self.best_agent()].nn.layers[1].bias.value)
-        
+
 
