@@ -70,7 +70,7 @@ class Population:
     # 
     # 
     #----------------------------------------------------------------    
-    def bestAgent(self):
+    def best_agent(self):
         """return index of best agents from last generation"""
         index = 0
         _max = float('-inf')
@@ -87,7 +87,7 @@ class Population:
     #----------------------------------------------------------------
     def observe(self, array, index):
         """get inputs and feed into nn"""
-        self.agents[index].set_input(array)
+        self.agents[index].observe(array)
 
     #----------------------------------------------------------------
     #
@@ -147,9 +147,14 @@ class Population:
     
 
     def __mutate(self, genes, mutation_rate):
-        """mutate weight by random value"""
+        """mutate the genome by random value"""
         for i in range(len(genes)):
             if random.random() < mutation_rate:
                 genes[i] = (random.random() * 2) - 1
         return genes
+    
+    def print_statistic(self):
+        print("Genome layers: " + len(self.agents[self.best_agent()].nn.layers))
+        print("Bias Node: " + self.agents[self.best_agent()].nn.layers[1].bias.value)
+        
 

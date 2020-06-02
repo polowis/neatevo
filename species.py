@@ -43,7 +43,8 @@ class Species:
                 slice_obj = slice(0, 1)
                 genes[slice_obj]
                     
-    def set_input(self, ins):
+    def observe(self, ins):
+        """get input and feed into network"""
         self.nn.layers[0].set_value(ins)
 
     def think(self):
@@ -52,7 +53,9 @@ class Species:
         _max = float('-inf')
         for i in range(len(self.nn.layers[len(self.nn.layers) -1].nodes)):
             if self.nn.layers[len(self.nn.layers) - 1].nodes[i].value > _max:
+                # get the output node from neural network
                 index = self.nn.layers[len(self.nn.layers) - 1].nodes[i].value
+                
         return index
 
 

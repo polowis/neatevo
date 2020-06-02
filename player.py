@@ -30,10 +30,6 @@ class Player:
         self.bestScore = 0 #score of the player
         self.dead = False
         self.score = 0
-        self.gen = 0
-
-        self.genomeInputs = 5
-        self.genomeOutputs = 2
 
     #
     #----------------------------------------
@@ -86,16 +82,17 @@ class Player:
     #----------------------------------------
     #
     def updatePipes(self, pipes):
+        """update pipes"""
         for pipe in pipes:
             pipe.update()
 
 
 
     def update(self):
-        """ """
-        self.lifespan += 1
-        self.score += 1
-        self.move()
+        """update bird """
+        self.lifespan += 1 # increase lifepsan by 1
+        self.score += 1 # increase score by 1
+        self.move() # move the bird
 
     #
     #----------------------------------------

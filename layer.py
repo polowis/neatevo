@@ -15,6 +15,7 @@ class Layer:
         for i in range(node_count):
             self.nodes.append(Node())
         
+        # init bias node
         if self.type != 'output':
             self.bias = Node()
     
